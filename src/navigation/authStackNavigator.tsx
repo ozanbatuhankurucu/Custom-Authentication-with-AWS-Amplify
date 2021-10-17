@@ -6,7 +6,7 @@ const {Screen, Navigator} = createStackNavigator();
 
 const AuthStackNavigator: React.FC = () => {
   return (
-    <Navigator>
+    <Navigator screenOptions={{headerShown: false}}>
       <Screen name="Login" component={Login}></Screen>
       <Screen name="SignUp" component={SignUp}></Screen>
     </Navigator>

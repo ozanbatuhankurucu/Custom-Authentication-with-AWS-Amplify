@@ -9,8 +9,9 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
+import {LogBox} from 'react-native';
 import MainNavigator from './src/navigation/mainNavigator';
-
+LogBox.ignoreLogs(['Remote debugger']);
 const App = () => {
   return <MainNavigator></MainNavigator>;
 };
