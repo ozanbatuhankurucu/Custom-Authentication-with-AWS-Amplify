@@ -1,10 +1,11 @@
-import React, {useState, useEffect, createRef, useRef} from 'react';
-import {Linking, Platform, View, ActivityIndicator, Button} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Linking, Platform, View, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 import AppStackNavigator from './appStackNavigator';
 import AuthStackNavigator from './authStackNavigator';
 import {navigationRef, isReadyRef} from './utils/rootNavigation';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
@@ -55,18 +56,20 @@ const MainNavigator: React.FC = () => {
   }
 
   return (
-    <NavigationContainer
-      initialState={initialState}
-      onStateChange={state => {
-        AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));
-      }}
-      ref={navigationRef}
-      onReady={() => {
-        // @ts-ignore
-        isReadyRef.current = true;
-      }}>
-      {isUserLoggedIn ? <AppStackNavigator /> : <AuthStackNavigator />}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer
+        initialState={initialState}
+        onStateChange={state => {
+          AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));
+        }}
+        ref={navigationRef}
+        onReady={() => {
+          // @ts-ignore
+          isReadyRef.current = true;
+        }}>
+        {isUserLoggedIn ? <AppStackNavigator /> : <AuthStackNavigator />}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
