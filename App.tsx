@@ -14,7 +14,7 @@ import MainNavigator from './src/navigation/mainNavigator';
 LogBox.ignoreLogs(['Remote debugger']);
 // TODOOzan dil secenegi eklenecek.
 const App = () => {
-  return <MainNavigator></MainNavigator>;
+    return <MainNavigator></MainNavigator>;
 };
 
 export default App;

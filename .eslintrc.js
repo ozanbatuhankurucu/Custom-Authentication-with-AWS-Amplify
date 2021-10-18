@@ -1,10 +1,11 @@
 module.exports = {
-  root: true,
-  extends: [
-    '@react-native-community',
-    'airbnb-typescript',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
-  ],
+    root: true,
+    plugins: ['@typescript-eslint'],
+    extends: [
+        '@react-native-community',
+        'airbnb-typescript',
+        'prettier',
+        'eslint:recommended',
+        'plugin:jest/recommended'
+    ]
 };
