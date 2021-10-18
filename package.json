@@ -1,57 +1,64 @@
 {
-  "name": "typescripttutorial",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "android:aab": "cd android && ./gradlew bundleRelease",
-    "android:apk": "cd android && ./gradlew assembleRelease --stacktrace",
-    "android:release": "react-native run-android --variant=release",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
-  },
-  "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.9",
-    "@react-native-community/masked-view": "^0.1.11",
-    "@react-navigation/native": "^5.9.8",
-    "@react-navigation/stack": "^5.14.9",
-    "react": "17.0.2",
-    "react-native": "^0.66.0",
-    "react-native-gesture-handler": "^1.10.3",
-    "react-native-reanimated": "^1.13.3",
-    "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.8.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "@types/jest": "^26.0.23",
-    "@types/react-native": "^0.65.0",
-    "@types/react-test-renderer": "^17.0.1",
-    "babel-jest": "^27.2.5",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "babel-plugin-root-import": "^6.6.0",
-    "eslint": "^7.14.0",
-    "jest": "^27.2.5",
-    "metro-react-native-babel-preset": "^0.66.2",
-    "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3"
-  },
-  "resolutions": {
-    "@types/react": "^17"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  }
+    "name": "typescripttutorial",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "android:aab": "cd android && ./gradlew bundleRelease",
+        "android:apk": "cd android && ./gradlew assembleRelease --stacktrace",
+        "android:release": "react-native run-android --variant=release",
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "start": "react-native start",
+        "test": "jest",
+        "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}",
+        "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./"
+    },
+    "dependencies": {
+        "@react-native-async-storage/async-storage": "^1.15.9",
+        "@react-native-community/masked-view": "^0.1.11",
+        "@react-navigation/native": "^5.9.8",
+        "@react-navigation/stack": "^5.14.9",
+        "react": "17.0.2",
+        "react-native": "^0.66.0",
+        "react-native-gesture-handler": "^1.10.3",
+        "react-native-reanimated": "^1.13.3",
+        "react-native-safe-area-context": "^3.3.2",
+        "react-native-screens": "^3.8.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.9",
+        "@babel/runtime": "^7.12.5",
+        "@react-native-community/eslint-config": "^2.0.0",
+        "@types/jest": "^26.0.23",
+        "@types/react-native": "^0.65.0",
+        "@types/react-test-renderer": "^17.0.1",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "babel-jest": "^27.2.5",
+        "babel-plugin-module-resolver": "^4.1.0",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb-typescript": "^14.0.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.26.1",
+        "jest": "^27.2.5",
+        "metro-react-native-babel-preset": "^0.66.2",
+        "prettier": "^2.4.1",
+        "react-test-renderer": "17.0.2",
+        "typescript": "^3.8.3"
+    },
+    "resolutions": {
+        "@types/react": "^17"
+    },
+    "jest": {
+        "preset": "react-native",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    }
 }
