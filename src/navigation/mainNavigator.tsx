@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {Linking, Platform, View, ActivityIndicator} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Linking, Platform, View, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import AppStackNavigator from './appStackNavigator';
 import AuthStackNavigator from './authStackNavigator';
-import {navigationRef, isReadyRef} from './utils/rootNavigation';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { navigationRef, isReadyRef } from './utils/rootNavigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
@@ -22,9 +22,7 @@ const MainNavigator: React.FC = () => {
         if (Platform.OS !== 'web' && initialUrl == null) {
           // Only restore state if there's no deep link and we're not on web
           const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
-          const state = savedStateString
-            ? JSON.parse(savedStateString)
-            : undefined;
+          const state = savedStateString ? JSON.parse(savedStateString) : undefined;
 
           if (state !== undefined) {
             setInitialState(state);
@@ -49,7 +47,13 @@ const MainNavigator: React.FC = () => {
 
   if (!isReady) {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
         <ActivityIndicator />
       </View>
     );
@@ -59,14 +63,15 @@ const MainNavigator: React.FC = () => {
     <SafeAreaProvider>
       <NavigationContainer
         initialState={initialState}
-        onStateChange={state => {
+        onStateChange={(state) => {
           AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));
         }}
         ref={navigationRef}
         onReady={() => {
           // @ts-ignore
           isReadyRef.current = true;
-        }}>
+        }}
+      >
         {isUserLoggedIn ? <AppStackNavigator /> : <AuthStackNavigator />}
       </NavigationContainer>
     </SafeAreaProvider>
