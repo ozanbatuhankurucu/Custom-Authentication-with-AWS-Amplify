@@ -1,10 +1,15 @@
-import React, { FC, useRef } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { FC } from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+interface LoginPropsType {
+  navigation: NavigationProp<ParamListBase>;
+}
 
-const Login: FC = (): React.ReactElement => {
+const Login: FC<LoginPropsType> = ({ navigation }): React.ReactElement => {
   return (
     <View style={styles.container}>
       <Text>Login Screen</Text>
+      <Button title="Go to Sign Up" onPress={(): void => navigation.navigate('SignUp')}></Button>
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, TextInput, Dimensions, StyleSheet } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -10,15 +10,14 @@ interface InputProps {
   name: string;
 }
 
-const Input: React.FC<InputProps> = ({ placeHolder, onChange, secureTextEntry, name }) => {
+const Input: FC<InputProps> = ({ placeHolder, onChange, secureTextEntry, name }) => {
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder={placeHolder}
         onChangeText={(text) => onChange(name, text)}
-        secureTextEntry={secureTextEntry}
-      ></TextInput>
+        secureTextEntry={secureTextEntry}></TextInput>
     </View>
   );
 };

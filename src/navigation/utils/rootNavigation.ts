@@ -1,4 +1,4 @@
-import React, { createRef, useRef } from 'react';
+import { createRef } from 'react';
 import { CommonActions, NavigationContainerRef } from '@react-navigation/native';
 
 export const isReadyRef = createRef();

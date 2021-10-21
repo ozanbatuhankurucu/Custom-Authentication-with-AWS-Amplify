@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Input } from '@/components';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 // TODOOzan type ayri bir ts dosyasina tasinacak.
 type userInformationType = {
   username: string;
@@ -9,7 +10,11 @@ type userInformationType = {
   password: string;
 };
 
-const SignUp: FC = () => {
+interface SignUpPropsType {
+  navigation: NavigationProp<ParamListBase>;
+}
+
+const SignUp: FC<SignUpPropsType> = ({ navigation }) => {
   const [userInformation, setuserInformation] = useState<userInformationType>({
     username: '',
     email: '',
@@ -30,6 +35,7 @@ const SignUp: FC = () => {
         <Input name="username" placeHolder="Username" onChange={handleOnChange} />
         <Input name="email" placeHolder="Email" onChange={handleOnChange} />
         <Input name="password" placeHolder="Password" onChange={handleOnChange} secureTextEntry />
+        <Button title="Login" onPress={(): void => navigation.navigate('Login')}></Button>
       </View>
     </SafeAreaView>
   );
