@@ -59,7 +59,8 @@ const MainNavigator: React.FC = () => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center'
-        }}>
+        }}
+      >
         <ActivityIndicator />
       </View>
     );
@@ -74,7 +75,8 @@ const MainNavigator: React.FC = () => {
         onReady={() => {
           // @ts-ignore
           isReadyRef.current = true;
-        }}>
+        }}
+      >
         {isUserLoggedIn ? <AppStackNavigator /> : <AuthStackNavigator />}
       </NavigationContainer>
     </SafeAreaProvider>

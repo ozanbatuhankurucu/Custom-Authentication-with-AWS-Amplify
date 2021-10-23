@@ -10,7 +10,8 @@ const Login: FC<LoginPropsType> = ({ navigation }): React.ReactElement => {
       <Text>Login Screen</Text>
       <Button
         title="Go to Sign Up"
-        onPress={(): void => navigation.navigate(APP_SCREEN.SIGN_UP)}></Button>
+        onPress={(): void => navigation.navigate(APP_SCREEN.SIGN_UP)}
+      ></Button>
     </View>
   );
 };

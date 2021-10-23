@@ -10,7 +10,8 @@ const Input: FC<InputProps> = ({ placeHolder, onChange, secureTextEntry, name })
         style={styles.input}
         placeholder={placeHolder}
         onChangeText={(text) => onChange(name, text)}
-        secureTextEntry={secureTextEntry}></TextInput>
+        secureTextEntry={secureTextEntry}
+      ></TextInput>
     </View>
   );
 };
