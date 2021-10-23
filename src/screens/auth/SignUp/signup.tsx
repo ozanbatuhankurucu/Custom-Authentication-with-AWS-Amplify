@@ -1,27 +1,18 @@
 import React, { FC, useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Input } from '@/components';
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
-// TODOOzan type ayri bir ts dosyasina tasinacak.
-type userInformationType = {
-  username: string;
-  email: string;
-  password: string;
-};
-
-interface SignUpPropsType {
-  navigation: NavigationProp<ParamListBase>;
-}
+import { SignUpPropsType, userInformationType } from './types';
+import { styles } from './styles';
 
 const SignUp: FC<SignUpPropsType> = ({ navigation }) => {
-  const [userInformation, setuserInformation] = useState<userInformationType>({
+  const [userSignUpInformation, setUserSignUpInformation] = useState<userInformationType>({
     username: '',
     email: '',
     password: ''
   });
   const handleOnChange = (name: string, text: string): void => {
-    setuserInformation((prev) => {
+    setUserSignUpInformation((prev) => {
       return {
         ...prev,
         [name]: text
@@ -42,14 +33,3 @@ const SignUp: FC<SignUpPropsType> = ({ navigation }) => {
 };
 
 export default SignUp;
-// TODOOzan style ayri bir ts dosyasina tasinacak.
-const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});

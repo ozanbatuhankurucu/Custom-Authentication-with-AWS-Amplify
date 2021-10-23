@@ -1,14 +1,14 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Login, SignUp } from '../screens/auth';
+import { APP_SCREEN } from '@/configs';
 
 const { Screen, Navigator } = createStackNavigator();
-// TODOOzan constant textler nasil tanimlanmis open source projeye bakarak implement edilecek.
 const AuthStackNavigator: React.FC = () => {
   return (
-    <Navigator screenOptions={{ headerShown: false }} initialRouteName="SignUp">
-      <Screen name="Login" component={Login}></Screen>
-      <Screen name="SignUp" component={SignUp}></Screen>
+    <Navigator screenOptions={{ headerShown: false }} initialRouteName={APP_SCREEN.LOG_IN}>
+      <Screen name={APP_SCREEN.LOG_IN} component={Login}></Screen>
+      <Screen name={APP_SCREEN.SIGN_UP} component={SignUp}></Screen>
     </Navigator>
   );
 };

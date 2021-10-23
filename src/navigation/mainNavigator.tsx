@@ -12,22 +12,22 @@ const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 const MainNavigator: React.FC = () => {
   const [isReady, setIsReady] = useState(false);
-  const [initialState, setInitialState] = useState();
+  const [initialState, setInitialState] = useState<NavigationState | undefined>();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   useEffect(() => {
     const restoreState = async (): Promise<void> => {
       try {
         const initialUrl = await Linking.getInitialURL();
-
         if (Platform.OS !== 'web' && initialUrl == null) {
-          // Only restore state if there's no deep link and we're not on web
-          const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
-          const state = savedStateString ? JSON.parse(savedStateString) : undefined;
-
-          if (state) {
-            setInitialState(state);
-          }
+          AsyncStorage.getItem(PERSISTENCE_KEY)
+            .then((stateString: string | null): void => {
+              if (stateString) {
+                const state = JSON.parse(stateString);
+                setInitialState(state);
+              }
+            })
+            .catch((err) => console.log(err));
         }
       } catch (err) {
         console.log(err);
