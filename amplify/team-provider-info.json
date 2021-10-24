@@ -10,6 +10,11 @@
       "StackName": "amplify-typescripttutorial-dev-223935",
       "StackId": "arn:aws:cloudformation:eu-central-1:121309892392:stack/amplify-typescripttutorial-dev-223935/cf9fa890-2eb8-11ec-8c19-0a8587af382c",
       "AmplifyAppId": "d2jrhbrxediak5"
+    },
+    "categories": {
+      "auth": {
+        "typescripttutorial26a7eda3": {}
+      }
     }
   }
 }

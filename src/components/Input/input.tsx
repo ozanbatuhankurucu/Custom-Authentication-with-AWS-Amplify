@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { View, TextInput } from 'react-native';
 import { InputProps } from './types';
 import { styles } from './styles';
 
-const Input: FC<InputProps> = ({ placeHolder, onChange, secureTextEntry, name }) => {
+export default function Input({ placeHolder, onChange, secureTextEntry, name }: InputProps) {
   return (
     <View style={styles.container}>
       <TextInput
@@ -14,6 +14,4 @@ const Input: FC<InputProps> = ({ placeHolder, onChange, secureTextEntry, name })
       ></TextInput>
     </View>
   );
-};
-
-export default Input;
+}

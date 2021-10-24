@@ -1,4 +1,5 @@
 import Input from './Input/input';
-import CustomButton from './customButton';
+import Button from './Button/button';
+import Link from './Link/link';
 
-export { Input, CustomButton };
+export { Input, Button, Link };

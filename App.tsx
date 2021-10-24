@@ -12,7 +12,10 @@ import React from 'react';
 import { LogBox } from 'react-native';
 import MainNavigator from './src/navigation/mainNavigator';
 LogBox.ignoreLogs(['Remote debugger']);
+// TODOOzan https://github.com/APSL/react-native-keyboard-aware-scroll-view/pull/501
+// Bu pr merge olduktan sonra normal bir sekilde install edilecek.
 // TODOOzan dil secenegi eklenecek.
+
 const App = () => {
   return <MainNavigator></MainNavigator>;
 };
