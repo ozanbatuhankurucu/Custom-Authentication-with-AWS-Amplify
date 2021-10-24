@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState, useEffect } from 'react';
 import { Linking, Platform, View, ActivityIndicator } from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import AppStackNavigator from './appStackNavigator';
@@ -14,6 +15,7 @@ const MainNavigator: React.FC = () => {
   const [isReady, setIsReady] = useState(false);
   const [initialState, setInitialState] = useState<NavigationState | undefined>();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [showSpinner, setShowSpinner] = useState<boolean>(false);
 
   useEffect(() => {
     const restoreState = async (): Promise<void> => {
@@ -59,8 +61,7 @@ const MainNavigator: React.FC = () => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center'
-        }}
-      >
+        }}>
         <ActivityIndicator />
       </View>
     );
@@ -75,9 +76,13 @@ const MainNavigator: React.FC = () => {
         onReady={() => {
           // @ts-ignore
           isReadyRef.current = true;
-        }}
-      >
-        {isUserLoggedIn ? <AppStackNavigator /> : <AuthStackNavigator />}
+        }}>
+        <Spinner visible={showSpinner} />
+        {isUserLoggedIn ? (
+          <AppStackNavigator />
+        ) : (
+          <AuthStackNavigator setShowSpinner={setShowSpinner} />
+        )}
       </NavigationContainer>
     </SafeAreaProvider>
   );

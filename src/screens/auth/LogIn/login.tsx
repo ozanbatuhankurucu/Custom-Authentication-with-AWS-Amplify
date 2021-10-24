@@ -7,11 +7,13 @@ import { APP_SCREEN } from '@/configs';
 import { styles } from './styles';
 import type { LoginPropsType, userInformationType } from './types';
 
-const Login: FC<LoginPropsType> = ({ navigation }): React.ReactElement => {
+const Login: FC<LoginPropsType> = ({ navigation, route }): React.ReactElement => {
+  const setShowSpinner = route.params.setShowSpinner;
   const [logInInformation, setLogInInformation] = useState<userInformationType>({
     username: '',
     password: ''
   });
+
   const handleOnChange = (name: string, text: string): void => {
     setLogInInformation((prev) => {
       return {
@@ -20,9 +22,12 @@ const Login: FC<LoginPropsType> = ({ navigation }): React.ReactElement => {
       };
     });
   };
+
   const handleSignUp = () => {
+    setShowSpinner(true);
     console.log('handleSignUp');
   };
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <KeyboardAwareScrollView contentContainerStyle={styles.container}>
@@ -32,7 +37,7 @@ const Login: FC<LoginPropsType> = ({ navigation }): React.ReactElement => {
         <Button title="Log in" onPress={handleSignUp}></Button>
         <View style={styles.linkContainer}>
           <Text style={styles.linkText}>Don&apos;t have an account?</Text>
-          <Link text="Sign up" onPress={() => navigation.navigate(APP_SCREEN.SIGN_UP)} />
+          <Link text="Sign up" onPress={(): void => navigation.navigate(APP_SCREEN.SIGN_UP)} />
         </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>

@@ -7,7 +7,9 @@ export enum APP_SCREEN {
 }
 
 export type RootStackParamList = {
-  [APP_SCREEN.LOG_IN]: undefined;
+  [APP_SCREEN.LOG_IN]: {
+    setShowSpinner: (showSpinner: boolean) => void;
+  };
   [APP_SCREEN.SIGN_UP]: undefined;
   [APP_SCREEN.HOME]: undefined;
   [APP_SCREEN.DASHBOARD]: undefined;
