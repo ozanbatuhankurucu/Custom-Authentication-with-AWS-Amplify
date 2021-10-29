@@ -1,4 +1,4 @@
 import Dashboard from '../app/dashboard';
-import Home from '../app/home';
+import Home from './Home/home';
 
 export { Dashboard, Home };

@@ -3,4 +3,6 @@ export interface InputProps {
   onChange: (name: string, value: string) => void;
   secureTextEntry?: boolean;
   name: string;
+  handleOnFocus: () => void;
+  handleOnBlur: () => void;
 }

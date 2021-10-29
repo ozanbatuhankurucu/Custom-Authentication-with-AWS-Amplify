@@ -11,7 +11,14 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { LogBox } from 'react-native';
 import MainNavigator from './src/navigation/mainNavigator';
-LogBox.ignoreLogs(['Remote debugger']);
+import Amplify from 'aws-amplify';
+import awsconfig from './src/aws-exports';
+Amplify.configure(awsconfig);
+LogBox.ignoreLogs([
+  'Remote debugger',
+  'Non-serializable values were found in the navigation state'
+]);
+
 // TODOOzan https://github.com/APSL/react-native-keyboard-aware-scroll-view/pull/501
 // Bu pr merge olduktan sonra normal bir sekilde install edilecek.
 // TODOOzan dil secenegi eklenecek.

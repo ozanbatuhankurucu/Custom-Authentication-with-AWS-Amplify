@@ -10,6 +10,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20
   },
+  pageTitle: {
+    fontSize: 15,
+    marginBottom: 10
+  },
   linkContainer: {
     flexDirection: 'row',
     marginVertical: 20
